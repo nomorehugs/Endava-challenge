@@ -11,7 +11,11 @@
   if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
   $database = mysqli_select_db($connection, DB_DATABASE);
-
+  
+  $sql = "CREATE DATABASE endava_db";
+if ($connection->query($sql) === TRUE) {
+    echo "Database created successfully with the name newDB";
+} 
   /* Ensure that the EMPLOYEES table exists. */
   VerifyEmployeesTable($connection, DB_DATABASE);
 
