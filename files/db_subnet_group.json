@@ -1,0 +1,13 @@
+{
+    "DBSubnetGroupName": "endava_db_subnet_group",
+    "DBSubnetGroupDescription": "Endava DB Subnet group",
+    "SubnetIds": [
+        "SUBNET1", "SUBNET2"
+    ],
+    "Tags": [
+	{
+            "Key": "Name",
+            "Value": "Endava DB Subnet group"
+        }
+    ]
+}
