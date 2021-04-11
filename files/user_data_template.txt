@@ -15,9 +15,9 @@ sudo chown ec2-user:apache /var/www/inc/
 
 cat <<EOT >> /var/www/inc/dbinfo.inc
 <?php
-define('DB_SERVER', '$DB_REP_ENDPOINT');
+define('DB_SERVER', 'DB_REP_ENDPOINT');
 define('DB_USERNAME', 'admin');
-define('DB_PASSWORD', '$DB_REP_PASSWORD');
+define('DB_PASSWORD', 'DB_REP_PASSWORD');
 define('DB_DATABASE', 'endava_db');
 ?>
 EOT
