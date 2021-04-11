@@ -2,7 +2,7 @@
 
 # Script will be for solution for https://github.com/Endava-Sofia/endava-devops-challenge
 # Also can be used for creating AWS Key Pair, VPC, Secirity Groups, RDS database, EC2 instance, Load Balancer for Web Application and CloudWatch Alerts
-# Script assume that user already install AWC CLI and configurate his/her account
+# Script assume that user already install AWC CLI and configurate his/her account and Amazon SNS.
 
 ### Variables
 # For Step 01.
