@@ -1,0 +1,27 @@
+#!/bin/bash
+
+sudo yum update -y
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo usermod -a -G apache ec2-user
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+mkdir -p /var/www/inc
+sudo chown ec2-user:apache /var/www/inc/
+
+cat <<EOT >> /var/www/inc/dbinfo.inc
+<?php
+define('DB_SERVER', '$DB_REP_ENDPOINT');
+define('DB_USERNAME', 'admin');
+define('DB_PASSWORD', '$DB_REP_PASSWORD');
+define('DB_DATABASE', 'endava_db');
+?>
+EOT
+
+sudo chown ec2-user:apache /var/www/inc/dbinfo.inc
+wget https://raw.githubusercontent.com/nomorehugs/Endava-challenge/main/files/SamplePage.php -O /var/www/html/SamplePage.php
+sudo chown ec2-user:apache /var/www/html/SamplePage.php
